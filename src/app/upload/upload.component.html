@@ -1,0 +1,37 @@
+<div class="uploads-page">
+  <div class="uploads-box">
+    <label for="file" class="uploads-box-label">
+      <span> Wybierz pliki</span>
+      <button (click)="uploadFiles()">Załaduj</button>
+    </label>
+
+
+    <div class="file-uploader"
+         appDragAndDrop (fileDropped)="updateFilesList($event)"
+         (click)="fileInput.click()">
+      <input #fileInput id="file" type="file"
+             (change)="filesSelection($event); log($event)" multiple hidden>
+
+      <ng-container *ngIf="filesPreview.length; else noFilesSelected">
+        <div class="selection-preview">
+          <div class="image-preview" *ngFor="let file of filesPreview">
+            <img  [src]="file" [alt]="file.name" />
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <ng-template #noFilesSelected>
+      <div class="no-files-selected">
+        <span>Upuść pliki</span>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="settings-box">
+    <label> Ustawienia </label>
+    <div class="settings-footer">
+      <button>Zapisz</button>
+    </div>
+  </div>
+</div>
