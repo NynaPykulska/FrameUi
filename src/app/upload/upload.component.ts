@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {ImageService} from "../service/image.service";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {ImageService} from "../shared/service/image.service";
+import {Settings} from "../shared/model/settings.model";
 
 @Component({
   selector: 'app-upload',
@@ -10,24 +12,30 @@ export class UploadComponent implements OnInit {
 
   filesToUpload: File[] = [];
   filesPreview = [];
+  formGroup: FormGroup;
 
-  constructor(private imageService: ImageService) { }
+  constructor(private imageService: ImageService, private formBuilder: FormBuilder) {
+  }
 
   ngOnInit(): void {
+    this.imageService.getSettings().subscribe((settings: Settings) => {
+      this.formGroup = this.formBuilder.group({
+        transitionTime: settings.transitionTime,
+        wakeUp: settings.wakeUp,
+        sleep: settings.sleep,
+        photoRetentionTime: settings.photoRetentionTime,
+      })
+    })
   }
-
-  log(aa: any) {
-    console.log('aa', aa)
-  }
-
 
   uploadFiles() {
     if (this.filesToUpload.length === 0) {
       return;
     }
 
-  const formData: FormData = new FormData();
+    const formData: FormData = new FormData();
     this.filesToUpload.forEach(file => formData.append('file', file, file.name));
+    this.imageService.uploadImage(formData).subscribe();
   }
 
   filesSelection(event: Event) {
@@ -56,5 +64,9 @@ export class UploadComponent implements OnInit {
     if (image) {
       reader.readAsDataURL(image);
     }
+  }
+
+  saveSettings() {
+    this.imageService.updateSettings(this.formGroup.value).subscribe();
   }
 }

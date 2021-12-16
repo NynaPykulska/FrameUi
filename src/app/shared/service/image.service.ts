@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable, tap} from "rxjs";
+import {Settings} from "../model/settings.model";
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +19,16 @@ export class ImageService {
     return this.http.get(`${this.apiUrl}/images/${id}`, { responseType: 'blob' });
   }
 
-  uploadImage(file: File) {
-    const formData = new FormData();
-    formData.append('file', file, file.name);
-    return this.http.post<number>(`${this.apiUrl}/images`, file)
+  uploadImage(files: FormData): Observable<number> {
+    return this.http.post<number>(`${this.apiUrl}/images`, files)
+  }
+
+  getSettings(): Observable<Settings> {
+    return this.http.get<Settings>(`${this.apiUrl}/settings`);
+  }
+
+  updateSettings(settings: Settings): Observable<Settings> {
+    return this.http.put<Settings>(`${this.apiUrl}/settings`, settings);
   }
 
 }

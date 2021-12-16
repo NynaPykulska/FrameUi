@@ -7,6 +7,7 @@ import { UploadComponent } from './upload/upload.component';
 import { PreviewComponent } from './preview/preview.component';
 import {HttpClientModule} from "@angular/common/http";
 import { DragAndDropDirective } from './upload/drag-and-drop.directive';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { DragAndDropDirective } from './upload/drag-and-drop.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

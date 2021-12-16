@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ImageService} from "../service/image.service";
 import {Observable, of, switchMap, tap} from "rxjs";
+import {ImageService} from "../shared/service/image.service";
 
 @Component({
   selector: 'app-preview',
