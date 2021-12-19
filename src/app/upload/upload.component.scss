@@ -76,10 +76,20 @@ label, span {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
 
     .settings-footer {
       display: flex;
       justify-content: flex-end;
+    }
+
+    .form-field-wrapper {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        width: 100%;
+      }
     }
   }
 }

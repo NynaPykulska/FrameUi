@@ -30,24 +30,24 @@
 
   <div class="settings-box" [formGroup]="formGroup">
     <label> Ustawienia </label>
-    <div>
+    <div class="form-field-wrapper">
       <label>transitionTime</label>
-      <input type="number" formControlName="transitionTime"></input>
+      <input type="number" formControlName="transitionTime"/>
     </div>
 
-    <div>
+    <div class="form-field-wrapper">
       <label>wakeUp</label>
-      <input type="text" formControlName="wakeUp"></input>
+      <input type="text" formControlName="wakeUp"/>
     </div>
 
-    <div>
+    <div class="form-field-wrapper">
       <label>sleep</label>
-      <input type="text" formControlName="sleep"></input>
+      <input type="text" formControlName="sleep"/>
     </div>
 
-    <div>
+    <div class="form-field-wrapper">
       <label>photoRetentionTime</label>
-      <input type="number" formControlName="photoRetentionTime"></input>
+      <input type="number" formControlName="photoRetentionTime"/>
     </div>
     <div class="settings-footer">
       <button (click)="saveSettings()">Zapisz</button>

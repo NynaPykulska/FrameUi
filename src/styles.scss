@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "src/assets/colors";
 
 * {
   font-family: 'Readex Pro', sans-serif;
@@ -13,4 +14,22 @@ html, body {
   margin: 0;
   min-width: 100%;
   min-height: 100%;
+}
+
+button {
+  border: 1px solid $color-charcoal;
+  border-radius: 3px;
+  background-color: $color-orange;
+  color: $color-charcoal;
+  font-size: 20px;
+  padding: 6px 12px;
+}
+
+input {
+  border: 1px solid $color-charcoal;
+  border-radius: 3px;
+  background-color: $color-orange;
+  color: $color-charcoal;
+  font-size: 20px;
+  padding: 6px 12px;
 }
