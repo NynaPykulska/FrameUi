@@ -7,7 +7,7 @@ import {Settings} from "../model/settings.model";
   providedIn: 'root'
 })
 export class ImageService {
-  private apiUrl = 'http://192.168.0.37:5000';
+  private apiUrl = 'https://frameapi.pagekite.me';
 
   constructor(private http: HttpClient) { }
 
@@ -24,11 +24,11 @@ export class ImageService {
   }
 
   getSettings(): Observable<Settings> {
-    return this.http.get<Settings>(`${this.apiUrl}/settings`);
+    return this.http.get<Settings>(`${this.apiUrl}/config`);
   }
 
   updateSettings(settings: Settings): Observable<Settings> {
-    return this.http.put<Settings>(`${this.apiUrl}/settings`, settings);
+    return this.http.post<Settings>(`${this.apiUrl}/config`, settings);
   }
 
 }

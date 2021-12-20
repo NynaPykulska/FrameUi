@@ -28,7 +28,7 @@
     </ng-template>
   </div>
 
-  <div class="settings-box" [formGroup]="formGroup">
+  <div class="settings-box" *ngIf="formGroup" [formGroup]="formGroup">
     <label> Ustawienia </label>
     <div class="form-field-wrapper">
       <label>transitionTime</label>
