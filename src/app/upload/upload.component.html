@@ -2,7 +2,10 @@
   <div class="uploads-box">
     <label for="file" class="uploads-box-label">
       <span> Wybierz pliki</span>
-      <button (click)="uploadFiles()">Załaduj</button>
+      <span>
+        <button (click)="cancelFilesUpload()">Anuluj</button>
+        <button (click)="uploadFiles()">Załaduj</button>
+      </span>
     </label>
 
 

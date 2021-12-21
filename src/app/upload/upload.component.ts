@@ -66,7 +66,15 @@ export class UploadComponent implements OnInit {
     }
   }
 
+  cancelFilesUpload() {
+    this.filesPreview = [];
+    this.filesToUpload = [];
+  }
+
   saveSettings() {
-    this.imageService.updateSettings(this.formGroup.value).subscribe();
+    this.imageService.updateSettings(this.formGroup.value).subscribe(_ => {
+      this.filesPreview = [];
+      this.filesToUpload = [];
+    });
   }
 }

@@ -19,17 +19,28 @@ html, body {
 button {
   border: 1px solid $color-charcoal;
   border-radius: 3px;
-  background-color: $color-orange;
+  background-color: $color-yellow;
   color: $color-charcoal;
   font-size: 20px;
   padding: 6px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-orange;
+    transition: 300ms;
+  }
 }
 
 input {
   border: 1px solid $color-charcoal;
   border-radius: 3px;
-  background-color: $color-orange;
+  background-color: $color-yellow;
   color: $color-charcoal;
   font-size: 20px;
   padding: 6px 12px;
+
+  &:focus {
+    background-color: $color-orange;
+    transition: 300ms;
+  }
 }

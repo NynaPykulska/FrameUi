@@ -28,6 +28,11 @@ label, span {
     .uploads-box-label {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 12px;
+
+      button {
+        margin-left: 12px;
+      }
     }
 
     .file-uploader {
