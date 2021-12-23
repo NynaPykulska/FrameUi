@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
-import {concatMap, delay, Observable, of, retryWhen, throwError} from "rxjs";
+import {concatMap, delay, Observable, of, retryWhen, tap, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class RetryInterceptor implements HttpInterceptor {
       retryWhen((error) =>
         error.pipe(
           concatMap((err, count) => {
-            if (count < 10 && err.status === 503) {
+            if (count < 10 && (err.status === 503 || err.status === 0)) {
               console.error(`Server unreachable, retry ${count}. Message: `, err.message);
               return of(err);
             }
