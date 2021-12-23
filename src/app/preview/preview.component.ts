@@ -53,7 +53,6 @@ export class PreviewComponent implements OnInit {
             } else {
               this.currentImageIndex = 0;
             }
-            console.log(this.currentImageIndex);
             this.loadImage();
           }, this.intervalTime)
         }
