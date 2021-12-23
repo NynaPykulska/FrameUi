@@ -18,7 +18,7 @@ export class RetryInterceptor implements HttpInterceptor {
             }
             return throwError(err);
           }),
-          delay(2000),
+          delay(5000),
         ),
       )
     )
